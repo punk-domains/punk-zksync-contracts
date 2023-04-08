@@ -21,6 +21,9 @@
     "zksync-web3": "^0.14.3"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "4.4.1",
+    "@rari-capital/solmate": "^6.4.0",
+    "base64-sol": "^1.1.0",
     "dotenv": "^16.0.3"
   }
 }
