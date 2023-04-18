@@ -9,6 +9,7 @@ module.exports = {
     compilerSource: "binary",
     settings: {},
   },
+
   defaultNetwork: "zkSyncTestnet",
 
   networks: {
@@ -20,6 +21,28 @@ module.exports = {
       verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'
     },
   },
+
+  /*
+  etherscan: {
+    apiKey: {
+      //zkSyncTestnet: "randomstring",
+    },
+
+    customChains: [
+      
+      {
+        network: "zkSyncTestnet",
+        chainId: 280,
+        urls: {
+          apiURL: "https://zksync2-testnet.zkscan.io/api",
+          browserURL: "https://zksync2-testnet.zkscan.io/"
+        }
+      }
+      
+    ]
+  },
+  */
+
   solidity: {
     version: "0.8.4",
   },

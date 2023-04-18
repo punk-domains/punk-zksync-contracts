@@ -1,5 +1,9 @@
 # Punk Domains smart contracts for zkSync Era
 
+The main repo for smart contract development is this one: https://github.com/punk-domains/punk-contracts 
+
+The zksync repo is only for deployments on zkSync Era which requires special libraries.
+
 Create a `.env` file and enter `DEPLOYER_PRIVATE_KEY` in it.
 
 ### Compile
