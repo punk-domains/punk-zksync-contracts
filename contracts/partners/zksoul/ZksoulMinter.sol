@@ -64,6 +64,7 @@ contract ZksoulMinter is Ownable, ReentrancyGuard {
 
   function mint(
     string memory _domainName,
+    address _domainHolder, // redundant, but kept for consistency in the frontend template
     address _referrer
   ) external nonReentrant payable returns(uint256 tokenId) {
     require(!paused, "Minting paused");
