@@ -40,5 +40,5 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 
   // Verify the contract
   console.log(`Wait a few minutes and then execute the following command to verify the contract:`);
-  console.log(`npx hardhat verify --network zkSyncTestnet ${contract.address} --constructor-args ${argsFullPath}`);
+  console.log(`npx hardhat verify --network ${deployer.hre.hardhatArguments.network} ${contract.address} --constructor-args ${argsFullPath}`);
 }

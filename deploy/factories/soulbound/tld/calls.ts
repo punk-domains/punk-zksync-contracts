@@ -4,23 +4,23 @@ import * as zksync from "zksync-web3";
 import * as ethers from "ethers";
 require('dotenv').config();
 
-const factoryAddress = "0xc3496554F548656367009E3a6dCCB416539dc831"; // @todo: replace with your address
-const forbiddenAddress = "0x80014cC4e645Bc0193dcE0EeCAe7Ef449c66D702"; // @todo: replace with your address
-const resolverAddress = "0x1667d9d508FE4F73f3004f431A27F2C225215C3C"; // @todo: replace with your address
-const tldAddress = "0xD15316d5D6Ce29Db5d1bE3191398F7F2C5e31CAA"; // @todo: replace with your address
-const minterAddress = "0xd013787d60fc5966b512EdEAb91085aEA5e287f0"; // @todo: replace with your address
+const factoryAddress = "0xd97c219096FFf79B902ba96E697D59cDF68F2ae1"; // @todo: replace with your address
+const forbiddenAddress = "0xbE6B3B0668d40FA042E2209462ED660AAf5874c7"; // @todo: replace with your address
+const resolverAddress = "0x57e53D8d2e0f5779efe6d0817DFfCF3dbd47E58f"; // @todo: replace with your address
+const tldAddress = "0xe36507aD67Ac0aE6D27D22b407A9338b136315df"; // @todo: replace with your address
+const minterAddress = ""; // @todo: replace with your address
 
 // New TLD params
-const name = ".testzksoul"; // @todo: replace with your TLD name
-const symbol = ".TESTZKSOUL"; // @todo: replace with your TLD symbol
+const name = ".zksoul"; // @todo: replace with your TLD name
+const symbol = ".ZKSOUL"; // @todo: replace with your TLD symbol
 const tldOwner = "0xb29050965A5AC70ab487aa47546cdCBc97dAE45D"; // @todo: replace with your address
 const domainPrice = 0; // 0 ETH
 const buyingEnabled = false;
 
 async function main() {
-  const zkSyncProvider = new zksync.Provider("https://testnet.era.zksync.dev");
+  const zkSyncProvider = new zksync.Provider("https://mainnet.era.zksync.io");
 
-  const ethProvider = ethers.getDefaultProvider("goerli");
+  const ethProvider = ethers.getDefaultProvider("mainnet");
 
   const signer = new zksync.Wallet(String(process.env.DEPLOYER_PRIVATE_KEY), zkSyncProvider, ethProvider);
 
@@ -59,7 +59,7 @@ async function main() {
     "function transferOwnership(address newOwner) external"
   ]);
 
-  const tldContract = new ethers.Contract(tldAddress, tldInterface, signer);
+  //const tldContract = new ethers.Contract(tldAddress, tldInterface, signer);
 
   // ADD FACTORY ADDRESS TO FORBIDDEN TLD CONTRACT
   //await forbiddenContract.addFactoryAddress(factoryAddress);
@@ -68,7 +68,8 @@ async function main() {
   //await resolverContract.addFactoryAddress(factoryAddress);
 
   // FACTORY CONTRACT: OWNER CREATE TLD
-  //const newTldAddress = await factoryContract.ownerCreateTld(name, symbol, tldOwner, domainPrice, buyingEnabled);
+  //const newTldAddressTx = await factoryContract.ownerCreateTld(name, symbol, tldOwner, domainPrice, buyingEnabled);
+  //const newTldAddress = await newTldAddressTx.wait();
   //console.log("New TLD address: ", newTldAddress);
 
   // RESOLVER: GET TLD ADDRESS

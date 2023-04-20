@@ -1,6 +1,6 @@
 // make sure you have the args file, even if it's an empty array
 // create a separate folder for each smart contract deployment (with deploy and args files)
-// npx hardhat deploy-zksync --script deploy/resolver/deploy.ts --network zkSyncTestnet
+// npx hardhat deploy-zksync --script deploy/resolver/deploy.ts --network zkSyncMainnet
 
 import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
@@ -24,6 +24,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const deployer = new Deployer(hre, wallet);
   const artifact = await deployer.loadArtifact(contractName);
 
+  console.log(deployer.hre.hardhatArguments.network)
+
   // Estimate contract deployment fee
   const deploymentFee = await deployer.estimateDeployFee(artifact, constructorArgs);
   const parsedFee = ethers.utils.formatEther(deploymentFee.toString());
@@ -40,5 +42,5 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 
   // Verify the contract
   console.log(`Wait a few minutes and then execute the following command to verify the contract:`);
-  console.log(`npx hardhat verify --network zkSyncTestnet ${contract.address} --constructor-args ${argsFullPath}`);
+  console.log(`npx hardhat verify --network ${deployer.hre.hardhatArguments.network} ${contract.address} --constructor-args ${argsFullPath}`);
 }

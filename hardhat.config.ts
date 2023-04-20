@@ -20,12 +20,21 @@ module.exports = {
       accounts: [process.env.DEPLOYER_PRIVATE_KEY],
       verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'
     },
+
+    zkSyncMainnet: {
+      url: "https://zksync2-mainnet.zksync.io",
+      ethNetwork: "mainnet", // Can also be the RPC URL of the network
+      zksync: true,
+      accounts: [process.env.DEPLOYER_PRIVATE_KEY],
+      verifyURL: 'https://zksync2-mainnet-explorer.zksync.io/contract_verification'
+    }
   },
 
-  /*
+  /* */
   etherscan: {
     apiKey: {
-      //zkSyncTestnet: "randomstring",
+      zkSyncTestnet: "randomstring",
+      zkSyncMainnet: "randomstring"
     },
 
     customChains: [
@@ -37,11 +46,19 @@ module.exports = {
           apiURL: "https://zksync2-testnet.zkscan.io/api",
           browserURL: "https://zksync2-testnet.zkscan.io/"
         }
+      },
+
+      {
+        network: "zkSyncMainnet",
+        chainId: 324,
+        urls: {
+          apiURL: "https://zksync2-mainnet.zkscan.io/api",
+          browserURL: "https://zksync2-mainnet.zkscan.io/"
+        }
       }
       
     ]
   },
-  */
 
   solidity: {
     version: "0.8.4",
