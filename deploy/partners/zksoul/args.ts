@@ -1,5 +1,5 @@
 module.exports = [
-  "0xD15316d5D6Ce29Db5d1bE3191398F7F2C5e31CAA", // TLD address
+  "0xe36507aD67Ac0aE6D27D22b407A9338b136315df", // TLD address
   "1000", // referral fee
   "500000000000000000", // price 1 char
   "250000000000000000", // price 2 char

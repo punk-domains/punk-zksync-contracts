@@ -5,7 +5,7 @@ import * as ethers from "ethers";
 require('dotenv').config();
 
 const tldAddress = "0xe36507aD67Ac0aE6D27D22b407A9338b136315df"; // @todo: replace with your TLD address
-const minterAddress = "0xF74Ed4A6c76452dd55533697e3A477f266e70f21"; // @todo: replace with your minter address
+const minterAddress = "0x346F859312527e5B2f34C22b645015e8764c0B14"; // @todo: replace with your minter address
 const metadataAddress = "0xc9AEd7851A3aC96452c299546bdEfbF09B6aC5a8"; // @todo: replace with your metadata address
 
 async function main() {
@@ -33,7 +33,8 @@ async function main() {
   const minterBefore = await tldContract.minter();
   console.log("Minter before: " + minterBefore);
 
-  //await tldContract.changeMinter(minterAddress);
+  const changeMinterTx = await tldContract.changeMinter(minterAddress);
+  await changeMinterTx.wait();
 
   const minterAfter = await tldContract.minter();
   console.log("Minter after: " + minterAfter);
